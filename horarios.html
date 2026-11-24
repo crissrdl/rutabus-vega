@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consulta tu horario · RutaBus</title><link rel="stylesheet" href="estilo.css"></head>
+<body><header><strong>RutaBus</strong><nav aria-label="Menú principal"><a href="index.html">Rutas</a> <a href="horarios.html">Horarios</a> <a href="contacto.html">Contacto</a></nav></header>
+<main><h1>Consulta tu horario</h1><p>Elige una ruta y un día.</p><form id="consulta">
+<label>Ruta<select id="ruta"><option>Ruta 1 – Campus a Centro</option><option>Ruta 2 – Campus a Terminal</option><option>Ruta 3 – Campus a Mercado</option></select></label>
+<label>Día<select id="dia"><option>Lunes</option><option>Martes</option><option>Miércoles</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option></select></label><button>Ver horario</button></form>
+<p id="resultado" role="status"></p><script>
+const horas = [['06:30','07:15'], ['07:00','07:50'], ['08:00','08:40']];
+document.querySelector('#consulta').addEventListener('submit', event => {
+  event.preventDefault();
+  const ruta = document.querySelector('#ruta').selectedIndex;
+  const dia = document.querySelector('#dia').selectedIndex;
+  const servicio = dia < 5 || (ruta === 2 && dia === 5);
+  document.querySelector('#resultado').textContent = servicio
+    ? 'Sale a las ' + horas[ruta][0] + ' y llega a las ' + horas[ruta][1] + '.'
+    : 'Esta ruta no circula el día seleccionado.';
+});
+</script></main><footer>RutaBus · Prototipo universitario</footer></body></html>

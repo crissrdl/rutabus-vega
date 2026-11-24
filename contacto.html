@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contáctanos · RutaBus</title><link rel="stylesheet" href="estilo.css"></head>
+<body><header><strong>RutaBus</strong><nav aria-label="Menú principal"><a href="index.html">Rutas</a> <a href="horarios.html">Horarios</a> <a href="contacto.html">Contacto</a></nav></header>
+<main><h1>Contáctanos</h1><p>Escríbenos si tienes dudas sobre las rutas.</p><form id="contacto"><label>Nombre<input required></label>
+<label>Correo<input type="email" required></label><label>Mensaje<textarea rows="4" required></textarea></label><button>Enviar</button></form><p role="status" id="estado"></p>
+<script>
+document.querySelector('#contacto').addEventListener('submit', event => {
+  event.preventDefault();
+  document.querySelector('#estado').textContent = 'Formulario validado. El envío se simula en este prototipo.';
+});
+</script></main><footer>RutaBus · Prototipo universitario</footer></body></html>
